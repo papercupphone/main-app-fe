@@ -1,0 +1,35 @@
+body {
+    font-family: Tahoma, sans-serif;
+}
+.main-message {
+    &-area {
+        display: block;
+        padding: 45px;
+        height: calc(100vh - 190px);
+        background-color: $primary-light;
+    }
+}
+.message {
+    &-box {
+        background-color: $gray1;
+        padding: 25px;
+        margin: 5px;
+    }
+    &-box-left {
+        border-radius: 50px 0 50px 50px;
+    }
+    &-box-rigth {
+        border-radius: 50px 0 50px 50px;
+    }
+    &-left {
+        float: right;
+        border-radius: 50px 0 50px 50px;
+    }
+    &-rigth {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        margin-left: auto;
+        border-radius: 50px 0 50px 50px;
+    }
+}

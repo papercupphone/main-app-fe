@@ -15,15 +15,20 @@ body {
         position: relative;
         float: left;
         font-size: 10px;
+        right: 10px;
     }
     &-rigth {
         position: relative;
         float: right;
         font-size: 10px;
+        left: 10px;
     }
 }
 .message {
-    padding: 25px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     margin: 5px;
     &-box {
         display: flex;

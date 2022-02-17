@@ -3,30 +3,39 @@ body {
 }
 .main-message {
     &-area {
+        overflow-y: auto;
         display: block;
         padding: 45px;
         height: calc(100vh - 190px);
         background-color: $primary-light;
     }
 }
-.message {
-    &-box {
-        background-color: $gray1;
-        padding: 25px;
-        margin: 5px;
-    }
-    &-box-left {
-        border-radius: 50px 0 50px 50px;
-    }
-    &-box-rigth {
-        border-radius: 50px 0 50px 50px;
-    }
+.date {
     &-left {
-        float: right;
-        border-radius: 50px 0 50px 50px;
+        position: relative;
+        float: left;
+        font-size: 10px;
     }
     &-rigth {
+        position: relative;
+        float: right;
+        font-size: 10px;
+    }
+}
+.message {
+    padding: 25px;
+    margin: 5px;
+    &-box {
         display: flex;
+        width: 100%;
+    }
+    &-left {
+        background-color: $gray1;
+        float: left;
+        border-radius: 0px 50px 50px 50px;
+    }
+    &-rigth {
+        background-color: $primary-color;
         flex-direction: row-reverse;
         align-items: center;
         margin-left: auto;

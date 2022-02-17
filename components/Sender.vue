@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import { SendIcon } from "vue-feather-icons";
+import { SendIcon } from "vue-feather-icons"
 
 export default {
   components: {
@@ -25,18 +25,29 @@ export default {
   data() {
     return {
       text: "",
-    };
+    }
   },
   methods: {
-    send: function () {
+    pageScroll() {
+      let chatContainer = document.querySelector(".main-message-area")
+      setTimeout(function () {
+        chatContainer.scrollBy({ top: 200, behavior: "smooth" })
+      }, 310)
+      setTimeout(function () {
+        chatContainer.scrollBy({ top: 200, behavior: "smooth" })
+      }, 1100)
+    },
+    send() {
       if (this.text !== "") {
-        let text = this.text;
-        let side = "rigth";
-        this.$store.commit("addMessage", { text, side });
-        this.$signalService.sendMessageOverWebRTC(text);
-        this.text = "";
+        let text = this.text
+        let side = "rigth"
+        let date = `${('0' + new Date().getHours()).slice(-2)}:${('0' + new Date().getMinutes()).slice(-2)}` 
+        this.$store.commit("addMessage", { text, side, date })
+        this.$signalService.sendMessageOverWebRTC(text)
+        this.pageScroll()
+        this.text = ""
       }
     },
   },
-};
+}
 </script>

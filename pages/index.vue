@@ -1,14 +1,9 @@
-<template>
-  
-</template>
+<template></template>
 
 <script>
-
 export default {
   components: {},
-  name: 'IndexPage',
-  mounted() {
-   
-  }
-}
+  name: "IndexPage",
+  mounted() {},
+};
 </script>

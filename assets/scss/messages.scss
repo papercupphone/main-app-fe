@@ -37,13 +37,13 @@ body {
     &-left {
         background-color: $gray1;
         float: left;
-        border-radius: 0px 50px 50px 50px;
+        border-radius: 0px 5px 5px 5px;
     }
     &-rigth {
         background-color: $primary-color;
         flex-direction: row-reverse;
         align-items: center;
         margin-left: auto;
-        border-radius: 50px 0 50px 50px;
+        border-radius: 5px 0 5px 5px;
     }
 }

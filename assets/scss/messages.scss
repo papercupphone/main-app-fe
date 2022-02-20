@@ -10,20 +10,6 @@ body {
         background-color: $primary-light;
     }
 }
-.date {
-    &-left {
-        position: relative;
-        float: left;
-        font-size: 10px;
-        right: 10px;
-    }
-    &-rigth {
-        position: relative;
-        float: right;
-        font-size: 10px;
-        left: 10px;
-    }
-}
 .message {
     padding-right: 15px;
     padding-left: 15px;
@@ -31,8 +17,27 @@ body {
     padding-bottom: 3px;
     margin: 5px;
     &-box {
+        .time {
+            position: relative;
+            float: right;
+            font-size: 10px;
+            left: 10px;
+        }
+        .name {
+            position: relative;
+            float: left;
+            font-size: 12px;
+            right: 10px;
+        }
         display: flex;
         width: 100%;
+    }
+    .text {
+        &-left {
+            margin-top: 15px;
+        }
+        &-rigth {
+        }
     }
     &-left {
         background-color: $gray1;
@@ -43,6 +48,7 @@ body {
         background-color: $primary-color;
         flex-direction: row-reverse;
         align-items: center;
+        color: $white;
         margin-left: auto;
         border-radius: 5px 0 5px 5px;
     }

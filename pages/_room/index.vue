@@ -33,7 +33,7 @@ export default {
     //this.setLocalStream()
     this.$signalService.setPeerListener((msg) => {
       let date = `${('0' + new Date().getHours()).slice(-2)}:${('0' + new Date().getMinutes()).slice(-2)}`
-      this.$store.commit("addMessage", { text: msg.data, side: "left", date })
+      this.$store.commit("addMessage", { text: msg.data, side: "left", date, name: msg.socketId })
       this.pageScroll()
     })
   },

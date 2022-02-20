@@ -1,5 +1,5 @@
 export const state = () => ({
-    messages: []
+    messages: [],
 })
 
 export const mutations = {

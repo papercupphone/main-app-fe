@@ -9,7 +9,7 @@
         placeholder="Write your message..."
       />
       <button class="submit" id="send-msg" @click="send()">
-        <send-icon size="1.5x"></send-icon>
+        <send-icon></send-icon>
       </button>
     </div>
   </div>
@@ -31,10 +31,10 @@ export default {
     pageScroll() {
       let chatContainer = document.querySelector(".main-message-area")
       setTimeout(function () {
-        chatContainer.scrollBy({ top: 200, behavior: "smooth" })
+        chatContainer.scrollBy({ top: 9999, behavior: "smooth" })
       }, 310)
       setTimeout(function () {
-        chatContainer.scrollBy({ top: 200, behavior: "smooth" })
+        chatContainer.scrollBy({ top: 9999, behavior: "smooth" })
       }, 1100)
     },
     send() {

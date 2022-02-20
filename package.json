@@ -9,6 +9,9 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/bootstrap-vue": "^2.0.4",
+    "bootstrap": "^4.6.0",
+    "bootstrap-vue": "^2.21.2",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/pwa": "^3.3.5",
     "@papercupphone/communication-services": "^0.0.2",

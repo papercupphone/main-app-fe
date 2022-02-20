@@ -5,10 +5,12 @@ body {
     &-area {
         overflow-y: auto;
         display: block;
-        padding: 45px;
-        height: calc(100vh - 190px);
-        background-color: $primary-light;
+        padding: 15px;
+        height: calc(100vh - 64px);
     }
+}
+.messages {
+    margin-top: 70px;
 }
 .message {
     padding-right: 15px;
@@ -17,6 +19,7 @@ body {
     padding-bottom: 3px;
     margin: 5px;
     &-box {
+        color: white;
         .time {
             position: relative;
             float: right;
@@ -34,21 +37,19 @@ body {
     }
     .text {
         &-left {
-            margin-top: 15px;
+            margin-top: 25px;
         }
         &-rigth {
         }
     }
     &-left {
-        background-color: $gray1;
         float: left;
         border-radius: 0px 5px 5px 5px;
     }
     &-rigth {
-        background-color: $primary-color;
+        background-color: $green;
         flex-direction: row-reverse;
         align-items: center;
-        color: $white;
         margin-left: auto;
         border-radius: 5px 0 5px 5px;
     }

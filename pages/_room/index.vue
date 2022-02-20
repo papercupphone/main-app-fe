@@ -16,12 +16,14 @@ export default {
     },
     pageScroll() {
       let chatContainer = this.$el.querySelector(".main-message-area")
-      setTimeout(function () {
-        chatContainer.scrollBy({ top: 200, behavior: "smooth" })
-      }, 310)
-      setTimeout(function () {
-        chatContainer.scrollBy({ top: 200, behavior: "smooth" })
-      }, 1100)
+      if ((chatContainer.scrollHeight - chatContainer.scrollTop) > 50) {
+        setTimeout(function () {
+          chatContainer.scrollBy({ top: 300, behavior: "smooth" })
+        }, 310)
+        setTimeout(function () {
+          chatContainer.scrollBy({ top: 300, behavior: "smooth" })
+        }, 1100)
+      }
     }
   },
   mounted() {

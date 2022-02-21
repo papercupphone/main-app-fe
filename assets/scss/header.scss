@@ -17,8 +17,9 @@
             justify-content: left;
             margin-left: 5px;
         }
-        &-rigth {
+        &-right {
             justify-content: right;
+            justify-content: flex-end;
             margin-right: 5px;
         }
         &-center {
@@ -27,6 +28,51 @@
         &-button {
             background-color: #202c33;
             color: #ffffff;
+            font-size: 5px;
+            width: 35px;
+            min-width: 35px;
+            height: 35px;
+            margin: 4px;
+            border-radius: 5px;
+            border: 0 !important;
+            font-weight: 800;
+            align-items: center;
+            justify-content: center;
+            display: inline-flex;
+        }
+    }
+}
+
+.videocall-header{
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: row;
+    position: fixed;
+    z-index: 99;
+    width: calc(100% - 30px);
+    color: white;
+    background-color: $background-light;
+    .header-item {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 5px;
+        &-left {
+            justify-content: left;
+            margin-left: 5px;
+        }
+        &-right {
+            justify-content: right;
+            justify-content: flex-end;
+            margin-right: 5px;
+        }
+        &-center {
+            justify-content: center;
+        }
+        &-button {
+            background-color: #202c33;
+            color: #ffffff;
+            font-size: 5px;
             width: 35px;
             min-width: 35px;
             height: 35px;

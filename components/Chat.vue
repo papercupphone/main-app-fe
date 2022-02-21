@@ -2,7 +2,6 @@
   <div class="main-chat">
     <div class="main-chat-content">
       <Messages />
-      <VideoCall ref="videoComponent" />
       <Sender />
     </div>
   </div>

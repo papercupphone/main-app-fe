@@ -4,3 +4,83 @@
 .modal {
     z-index: 999;
 }
+#videocall {
+    .modal-dialog {
+        max-width: 100%;
+        margin: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        display: flex;
+        position: fixed;
+        z-index: 100000;
+    }
+    .modal-content {
+        height: 100vh;
+        background-color: $background-light;
+    }
+}
+
+$small: 750px;
+
+@for $x from 1 through 50 {
+  .video-#{$x} {
+    @if $x == 1 {
+      width: 100%;
+      height: 100%;
+    }
+
+    @if $x == 2 {
+      @media screen and (max-width: $small) {
+        width: 100%;
+        height: 49%;
+      }
+      @media screen and (min-width: $small) {
+        width: 49%;
+        height: 100%;
+      }
+    }
+
+    @if $x == 3 or $x == 4 {
+      width: 49%;
+      height: 49%;
+    }
+
+    @if $x == 5 or $x == 6 {
+      width: 33%;
+      height: 50%;
+    }
+
+    @if $x == 7 or $x == 8 or $x == 9 {
+      width: 33%;
+      height: 33%;
+    }
+
+    @if $x == 10 or $x == 11 or $x == 12 {
+      width: 25%;
+      height: 25%;
+    }
+
+    @if $x == 13 or $x == 14 or $x == 15 {
+      width: 20%;
+      height: 20%;
+    }
+
+    @if $x == 16 or $x == 17 or $x == 18 {
+      width: 15%;
+      height: 25%;
+    }
+
+    @if $x > 18 and $x < 35 {
+      width: 15%;
+      height: 15%;
+    }
+
+    @if $x >= 35 {
+      width: 10%;
+      height: 10%;
+    }
+  }
+}

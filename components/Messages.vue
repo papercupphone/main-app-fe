@@ -14,11 +14,12 @@
 </template>
 <script>
 import ChatHeader from "./ChatHeader.vue"
+
 export default {
     name: "Messages",
     methods: {
         messageBg(message) {
-            if (message.side !== "rigth") {
+            if (message.side !== "right") {
                 let backgroundColor = this.stringToColour(message.name.slice(0, -1).substr(message.name.length - 7));
                 let textColor = this.isLightColor(backgroundColor) ? "black" : "white";
                 return `background-color:${backgroundColor};color:${textColor}`;

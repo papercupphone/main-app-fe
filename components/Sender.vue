@@ -40,7 +40,7 @@ export default {
     send() {
       if (this.text !== "") {
         let text = this.text
-        let side = "rigth"
+        let side = "right"
         let date = `${('0' + new Date().getHours()).slice(-2)}:${('0' + new Date().getMinutes()).slice(-2)}` 
         this.$store.commit("addMessage", { text, side, date })
         this.$signalService.sendMessageOverWebRTC(text)

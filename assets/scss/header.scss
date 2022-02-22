@@ -45,11 +45,9 @@
 
 .videocall-header{
     display: flex;
-    margin-bottom: 10px;
-    flex-direction: row;
-    position: fixed;
+    position: absolute;
+    right: 0;
     z-index: 99;
-    width: calc(100% - 30px);
     color: white;
     background-color: transparent;
     .header-item {

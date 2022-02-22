@@ -25,7 +25,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    { src: '~/plugins/signal.service.js', mode: 'client' }
+    { src: '~/plugins/signal.service.js', mode: 'client' },
+    { src: '~/plugins/vue-js-modal.js', mode: 'client' }
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -60,7 +61,7 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [
-      '@papercupphone/communication-services',
+      '@papercupphone/communication-services'
     ]
   },
 }

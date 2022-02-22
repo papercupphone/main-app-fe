@@ -1,42 +1,66 @@
 <template>
-    <b-modal
-        content-class="modal-space"
-        class="modal"
-        id="videocall"
-        size="xl"
-        ref="videocall"
-        tabindex="-1"
-        role="dialog"
-        hide-footer
-        hide-header
-        hide-header-close
-        hide-backdrop
-        centered
-    >
-        <video-call-header :hide="hide" />
-        <video-container
-            :class="`local-video video-${(remoteStreams.length + 1)}`"
-            :muted="true"
-            :stream="localStream"
-        />
-        <video-container
-            v-for="(streamObj, index) in remoteStreams"
-            :muted="false"
-            :key="`video-container-${index}`"
-            :class="`remote-video video-${(remoteStreams.length + 1)}`"
-            :stream="streamObj.stream"
-        />
-    </b-modal>
+    <client-only>
+        <div>
+            <modal
+                name="maximizedVideoModal"
+                :resizable="false"
+                :draggable="false"
+                :clickToClose="false"
+                width="100%"
+                height="100%"
+                classes="modal-maximized"
+                styles="background-color:transparent;box-shadow:none;"
+            >
+                <video-call-header :minimize="minimize" :maximized="true" />
+                <video-container
+                    :class="`local-video video-${(remoteStreams.length + 1)}`"
+                    :muted="true"
+                    :stream="localStream"
+                />
+                <video-container
+                    v-for="(streamObj, index) in remoteStreams"
+                    :muted="false"
+                    :key="`video-container-${index}`"
+                    :class="`remote-video video-${(remoteStreams.length + 1)}`"
+                    :stream="streamObj.stream"
+                />
+            </modal>
+            <modal
+                name="minimizedVideoModal"
+                :resizable="true"
+                :draggable="true"
+                :clickToClose="false"
+                width="50%"
+                height="50%"
+                classes="modal-minimized"
+                styles="background-color:transparent;box-shadow:none;"
+            >
+                <video-call-header :maximize="maximize" :maximized="false" />
+                <video-container
+                    :class="`local-video video-${(remoteStreams.length + 1)}`"
+                    :muted="true"
+                    :stream="localStream"
+                />
+                <video-container
+                    v-for="(streamObj, index) in remoteStreams"
+                    :muted="false"
+                    :key="`video-container-${index}`"
+                    :class="`remote-video video-${(remoteStreams.length + 1)}`"
+                    :stream="streamObj.stream"
+                />
+            </modal>
+        </div>
+    </client-only>
 </template>
 
 <script>
 import VideoContainer from "~/components/VideoContainer.vue"
-import VideoCallHeader from '~/components/VideoCallHeader.vue'
+import VideoCallHeader from "~/components/VideoCallHeader.vue"
 
 export default {
     data() {
         return {
-            istirim:{}
+            minimized: false
         }
     },
     name: "VideoCall",
@@ -45,19 +69,24 @@ export default {
         VideoCallHeader
     },
     methods: {
+        minimize() {
+            this.$modal.hide('maximizedVideoModal')
+            this.$modal.show('minimizedVideoModal')
+        },
+        maximize() {
+            this.$modal.show('maximizedVideoModal')
+            this.$modal.hide('minimizedVideoModal')
+        },
         show() {
-            this.$refs.videocall.show();
+            this.$modal.show('maximizedVideoModal')
         },
         hide() {
-            this.$refs.videocall.hide();
-        },
+            this.$modal.hide('maximizedVideoModal')
+            this.$modal.hide('minimizedVideoModal')
+        }
     },
     mounted() {
         this.$signalService.setOnMediaStream((mediaStream) => {
-            console.log("onMediaStream")
-            console.log(mediaStream.getVideoTracks()[0])
-            window.streamx = mediaStream.getVideoTracks()[0]
-            this.istirim = mediaStream
             this.$store.commit('addRemoteStream', { stream: mediaStream })
         })
     },
@@ -69,5 +98,5 @@ export default {
             return this.$store.state.remoteStreams
         }
     }
-};
+}
 </script>

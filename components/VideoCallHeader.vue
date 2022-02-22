@@ -3,24 +3,31 @@
         <div class="header-item header-item-left"></div>
         <div class="header-item header-item-center"></div>
         <div class="header-item header-item-right">
-            <button class="header-item-button" @click="minimize()">
+            <button v-if="maximized" class="header-item-button" @click="_minimize()">
                 <minimize-icon />
+            </button>
+             <button v-if="!maximized" class="header-item-button" @click="_maximize()">
+                <maximize-icon />
             </button>
         </div>
     </div>
 </template>
 
 <script>
-import { MinimizeIcon } from 'vue-feather-icons'
+import { MaximizeIcon,MinimizeIcon } from 'vue-feather-icons'
 
 export default {
     components: {
-        MinimizeIcon
+        MinimizeIcon,
+        MaximizeIcon
     },
-    props: ['hide'],
+    props: ['minimize','maximize','maximized'],
     methods: {
-        minimize() {
-            this.hide()
+        _minimize() {
+            this.minimize()
+        },
+        _maximize(){
+            this.maximize()
         }
     }
 }

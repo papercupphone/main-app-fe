@@ -3,8 +3,11 @@
         <div class="header-item header-item-left">{{ this.$route.params.room }}</div>
         <div class="header-item header-item-center"></div>
         <div class="header-item header-item-right">
-            <button class="header-item-button" @click="call()">
+            <button v-if="!inCall" class="header-item-button" @click="call()">
                 <video-icon />
+            </button>
+            <button v-if="inCall" class="header-item-button" @click="maximize()">
+                <maximize-icon />
             </button>
         </div>
         <VideoCall ref="videoComponent" />
@@ -12,18 +15,27 @@
 </template>
 
 <script>
-import { VideoIcon } from 'vue-feather-icons'
-import { PhoneCallIcon } from 'vue-feather-icons'
+import { PhoneCallIcon, MaximizeIcon, VideoIcon } from 'vue-feather-icons'
 import { MediaService } from "@papercupphone/communication-services"
 
 export default {
+    data() {
+        return {
+            inCall: false
+        }
+    },
     components: {
         VideoIcon,
+        MaximizeIcon,
         PhoneCallIcon
     },
     methods: {
         async call() {
             await this.setLocalStream()
+            this.inCall = true
+        },
+        async maximize() {
+            this.$refs.videoComponent.show()
         },
         async setLocalStream() {
             let media = await MediaService.getMedia({ audio: true, video: true })

@@ -21,5 +21,10 @@ export const mutations = {
     },
     setMediaConstraints(state, mediaConstraints) {
         state.mediaConstraints = mediaConstraints
+    },
+    removeRemoteStream(state, remoteSocketId) {
+        state.remoteStreams = state.remoteStreams.filter(el => {
+            return el.remoteSocketId !== remoteSocketId
+        })
     }
 }

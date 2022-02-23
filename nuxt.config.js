@@ -43,6 +43,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     'bootstrap-vue/nuxt',
+    '@nuxtjs/device'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

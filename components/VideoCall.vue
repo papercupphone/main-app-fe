@@ -3,13 +3,12 @@
         <div>
             <modal
                 name="maximizedVideoModal"
-                :resizable="false"
                 :draggable="false"
                 :clickToClose="false"
                 width="100%"
                 height="100%"
                 classes="modal-maximized"
-                styles="background-color:transparent;box-shadow:none;"
+                styles="background-color:rgb(0 0 0 / 50%);box-shadow:none;"
             >
                 <video-call-header :minimize="minimize" :maximized="true" />
                 <video-container
@@ -27,13 +26,13 @@
             </modal>
             <modal
                 name="minimizedVideoModal"
-                :resizable="true"
                 :draggable="true"
+                :resizable="$device.isDesktop"
                 :clickToClose="false"
                 width="50%"
                 height="50%"
                 classes="modal-minimized"
-                styles="background-color:transparent;box-shadow:none;"
+                styles="background-color:rgb(0 0 0 / 50%);box-shadow:none;"
             >
                 <video-call-header :maximize="maximize" :maximized="false" />
                 <video-container
@@ -86,8 +85,11 @@ export default {
         }
     },
     mounted() {
-        this.$signalService.setOnMediaStream((mediaStream) => {
-            this.$store.commit('addRemoteStream', { stream: mediaStream })
+        this.$signalService.setOnMediaStream((mediaStream, remoteSocketId) => {
+            this.$store.commit('addRemoteStream', { stream: mediaStream, remoteSocketId })
+        })
+        this.$signalService.setOnDisconnected((remoteSocketId) => {
+            this.$store.commit('removeRemoteStream', remoteSocketId)
         })
     },
     computed: {

@@ -1,0 +1,18 @@
+html {
+    height  : 100%;
+    overflow: hidden;
+    position: relative;
+}
+body {
+    height  : 100%;
+    overflow: auto;
+    position: relative;
+}
+
+.vm--container {
+    max-height: 0px !important;
+}
+
+.vm--overlay {
+    max-height: 0px !important;
+}

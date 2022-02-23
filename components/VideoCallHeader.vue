@@ -3,10 +3,10 @@
         <div class="header-item header-item-left"></div>
         <div class="header-item header-item-center"></div>
         <div class="header-item header-item-right">
-            <button v-if="maximized" class="header-item-button" @click="_minimize()">
+            <button v-if="maximized" class="header-item-button" @click="min()">
                 <minimize-icon />
             </button>
-             <button v-if="!maximized" class="header-item-button" @click="_maximize()">
+            <button v-if="!maximized" class="header-item-button" @click="max()">
                 <maximize-icon />
             </button>
         </div>
@@ -14,20 +14,29 @@
 </template>
 
 <script>
-import { MaximizeIcon,MinimizeIcon } from 'vue-feather-icons'
+import { MaximizeIcon, MinimizeIcon } from 'vue-feather-icons'
 
 export default {
     components: {
         MinimizeIcon,
         MaximizeIcon
     },
-    props: ['minimize','maximize','maximized'],
     methods: {
-        _minimize() {
-            this.minimize()
+        min() {
+            this.$store.commit("toggleMaximized")
+            this.$modal.show('minimizedVideoModal')
+            this.$modal.hide('maximizedVideoModal')
         },
-        _maximize(){
-            this.maximize()
+        max() {
+            console.log("asd")
+            this.$store.commit("toggleMaximized")
+            this.$modal.show('maximizedVideoModal')
+            this.$modal.hide('minimizedVideoModal')
+        },
+    },
+    computed: {
+        maximized() {
+            return this.$store.state.maximized
         }
     }
 }

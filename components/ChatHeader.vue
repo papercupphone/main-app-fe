@@ -6,11 +6,8 @@
             <button v-if="!inCall" class="header-item-button" @click="call()">
                 <video-icon />
             </button>
-            <button v-if="inCall" class="header-item-button" @click="maximize()">
-                <maximize-icon />
-            </button>
         </div>
-        <VideoCall ref="videoComponent" />
+        <VideoCall ref="videoCallComponent" />
     </div>
 </template>
 
@@ -35,14 +32,14 @@ export default {
             this.inCall = true
         },
         async maximize() {
-            this.$refs.videoComponent.show()
+            this.$refs.videoCallComponent.show()
         },
         async setLocalStream() {
             let media = await MediaService.getMedia({ audio: true, video: true })
             this.$signalService.setLocalStream(media)
             this.$signalService.addTracksToPCs()
             this.$store.commit("setLocalStream", media)
-            this.$refs.videoComponent.show()
+            this.$refs.videoCallComponent.show()
         },
     },
 }

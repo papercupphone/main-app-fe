@@ -5,12 +5,16 @@ export const state = () => ({
         video: true,
         audio: true
     },
+    maximized: true,
     remoteStreams: []
 })
 
 export const mutations = {
     addMessage(state, messageObj) {
         state.messages.push(messageObj)
+    },
+    toggleMaximized(state) {
+        state.maximized = !state.maximized
     },
     setLocalStream(state, localStream) {
         state.localStream = localStream

@@ -94,12 +94,11 @@ $small: 749px;
       justify-content: center;
     }
     &-button {
-      background-color: #202c33;
       color: #ffffff;
       font-size: 5px;
-      width: 35px;
-      min-width: 35px;
-      height: 35px;
+      width: 40px;
+      min-width: 40px;
+      height: 40px;
       margin: 4px;
       border-radius: 5px;
       border: 0 !important;
@@ -108,6 +107,12 @@ $small: 749px;
       justify-content: center;
       display: inline-flex;
     }
+  }
+  .redish {
+    background-color: #33202096;
+  }
+  .bluish {
+    background-color: #202c3396;
   }
 }
 

@@ -7,6 +7,8 @@ export const state = () => ({
     },
     inCall: false,
     maximized: true,
+    muted: false,
+    camOpen: true,
     remoteStreams: []
 })
 
@@ -20,6 +22,12 @@ export const mutations = {
     toggleMaximized(state) {
         state.maximized = !state.maximized
     },
+    toggleAudioEnabled(state) {
+        state.muted = !state.muted
+    },
+    toggleVideoEnabled(state) {
+        state.camOpen = !state.camOpen
+    },
     setLocalStream(state, localStream) {
         state.localStream = localStream
     },
@@ -29,15 +37,15 @@ export const mutations = {
     setMediaConstraints(state, mediaConstraints) {
         state.mediaConstraints = mediaConstraints
     },
-    removeLocalStream(state){
+    removeLocalStream(state) {
         state.localStream = null
     },
-    removeAllRemoteStreams(state){
+    removeAllRemoteStreams(state) {
         state.remoteStreams = []
     },
     removeRemoteStream(state, remoteSocketId) {
         state.remoteStreams = state.remoteStreams.filter(el => {
             return el.remoteSocketId !== remoteSocketId
         })
-    }     
+    }
 }

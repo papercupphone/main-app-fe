@@ -18,8 +18,11 @@ export default {
         PhoneOffIcon,
     },
     methods: {
-        endCall(){
-            console.log("end call")
+        async endCall() {
+            await this.$signalService.removeTracksFromPCs()
+            this.$modal.hide("maximizedVideoModal")
+            this.$modal.hide("minimizedVideoModal")
+            this.$store.commit("toggleInCall")
         }
     },
     computed: {}

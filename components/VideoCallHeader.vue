@@ -28,7 +28,6 @@ export default {
             this.$modal.hide('maximizedVideoModal')
         },
         max() {
-            console.log("asd")
             this.$store.commit("toggleMaximized")
             this.$modal.show('maximizedVideoModal')
             this.$modal.hide('minimizedVideoModal')

@@ -17,9 +17,7 @@ import { MediaService } from "@papercupphone/communication-services"
 
 export default {
     data() {
-        return {
-            inCall: false
-        }
+        return {}
     },
     components: {
         VideoIcon,
@@ -29,7 +27,7 @@ export default {
     methods: {
         async call() {
             await this.setLocalStream()
-            this.inCall = true
+            this.$store.commit("toggleInCall")
         },
         async maximize() {
             this.$refs.videoCallComponent.show()
@@ -42,5 +40,10 @@ export default {
             this.$refs.videoCallComponent.show()
         },
     },
+    computed: {
+        inCall(){
+            return this.$store.state.inCall
+        }
+    }
 }
 </script>

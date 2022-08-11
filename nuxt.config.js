@@ -14,8 +14,8 @@ export default {
   },
 
   publicRuntimeConfig: {
-    SOCKET_URL: "wss://l8r3h0bkw0.execute-api.eu-west-1.amazonaws.com/prod",
-    API_URL: "https://2pjueq40je.execute-api.eu-west-1.amazonaws.com/prod"
+    SOCKET_URL: "wss://ab6w3qi2z5.execute-api.eu-west-1.amazonaws.com/prod",
+    API_URL: "https://rke7ciuhgf.execute-api.eu-west-1.amazonaws.com/prod"
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

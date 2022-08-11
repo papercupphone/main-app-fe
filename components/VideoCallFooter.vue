@@ -11,10 +11,10 @@
             <button class="footer-item-button redish" @click="endCall">
                 <phone-off-icon />
             </button>
-            <button v-if="!muted" class="footer-item-button bluish" @click="toggleAudioEnabled">
+            <button v-if="muted" class="footer-item-button bluish" @click="toggleAudioEnabled">
                 <mic-icon />
             </button>
-            <button v-if="muted" class="footer-item-button redish" @click="toggleAudioEnabled">
+            <button v-if="!muted" class="footer-item-button redish" @click="toggleAudioEnabled">
                 <mic-off-icon />
             </button>
         </div>

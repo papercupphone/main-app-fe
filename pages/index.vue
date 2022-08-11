@@ -4,6 +4,8 @@
 export default {
   components: {},
   name: "IndexPage",
-  mounted() {},
+  mounted() {
+    window.location.href = "/lobby";
+  },
 };
 </script>

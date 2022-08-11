@@ -5,7 +5,7 @@
         <div class="header-item header-item-right">
             <button v-if="!inCall" class="header-item-button" @click="call()">
                 <video-icon />
-            </button>
+            </button> 
         </div>
         <VideoCall ref="videoCallComponent" />
     </div>
@@ -44,6 +44,9 @@ export default {
         inCall(){
             return this.$store.state.inCall
         }
+    },
+    mounted(){
+        this.call();
     }
 }
 </script>
